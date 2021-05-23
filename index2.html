@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="shortcut icon" href="cal.gif"  type="image/x-icon">
+    <style>
+        .main_div{
+            width: 328px;;
+            border: 1px solid lightgray;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        }
+     
+        .btns{
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btns:focus{
+            border: 1px dotted gray;
+        }
+        .btn{
+            width: 70px;
+            height: 70px;
+            margin: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .btns_final{
+            width: 70px;
+            height: 311px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            color: #ffffff;
+            background-color: rgb(14, 136, 230);
+        }
+        .btn:focus{
+            border: 1px solid greenyellow;
+        }
+        .edu{
+            width: 100%;
+        }
+        #for_input input{
+            width: 321px;
+            height: 70px;
+            background-color: #000;
+            text-align: right;
+        }
+         .btns:hover{
+            background-color: cadetblue;
+            border: none;
+            color: #ffffff;
+        }
+        #for_input input[type ="text"]{
+            font-size: 38px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    
+    </style>
+</head>
+<body style="background-color: lightgray;">
+    <center>
+        <h1>CALCULATOR</h1>
+        <div class="main_div">
+            <div style="display: flex;flex-direction: column;">
+                <div id="for_input">
+                    <input type="text" id="txt">
+                </div>
+                <div style="display: flex;">
+                    <input class="btn" type="button" value="+" onclick="dis('+')">
+                    <input class="btn" type="button" value="-" onclick="dis('-')">
+                    <input class="btn" type="button" value="x" onclick="dis('*')">
+                    <input class="btn" type="button" value="&#247" onclick="dis('/')">
+                </div>
+            </div>
+            <div style="display:flex">
+                <div style="display: flex;flex-direction: column;">
+                    <div>
+                        <input class="btns" type="button" value="7" onclick="dis('7')">
+                        <input class="btns" type="button" value="8" onclick="dis('8')">
+                        <input class="btns" type="button" value="9" onclick="dis('9')">
+                    </div>
+                    <div>
+                        <input class="btns" type="button" value="4" onclick="dis('4')">
+                        <input class="btns" type="button" value="5" onclick="dis('5')">
+                        <input class="btns" type="button" value="6" onclick="dis('6')">
+                    </div>
+                    <div>
+                        <input class="btns" type="button" value="1" onclick="dis('1')">
+                        <input class="btns" type="button" value="2" onclick="dis('2')">
+                        <input class="btns" type="button" value="3" onclick="dis('3')">
+                    </div>
+                    <div>
+                        <input class="btns" type="button" value="0" onclick="dis('0')">
+                        <input class="btns" type="button" value="." onclick="dis('.')">
+                        <input class="btns" style="background-color: red;color: #fff;border: none;" type="button" value="AC" onclick="clr()">
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" class="btns_final" value="=" onclick="submit()">
+                </div>
+            </div>
+        </div>
+</center>
+    <script>
+        function dis(val){
+            document.getElementById("txt").value+=val;
+        }
+        function submit(){
+            let x = document.getElementById("txt").value;
+            let y = eval(x);
+            document.getElementById("txt").value = y;
+        }
+        function clr(){
+            document.getElementById("txt").value = "";
+        }
+    </script>
+</body>
+</html>
